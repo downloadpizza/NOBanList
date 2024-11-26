@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>.NETFramework,Version=v4.8</TargetFramework>
+    <AssemblyName>NOBanList</AssemblyName>
+    <AssemblyDir Condition="'$(AssemblyDir)'==''">D:\SteamLibrary\steamapps\common\Nuclear Option\NuclearOption_Data\Managed</AssemblyDir>
+    <ModDeployDir Condition="'$(ModDeployDir)'==''">D:\SteamLibrary\steamapps\common\Nuclear Option\Mods\NOBanList</ModDeployDir>
+  </PropertyGroup>
+
+  <Target Name="CopyModToDeployDir" AfterTargets="AfterBuild">
+    <Copy SourceFiles="./bin/$(Configuration)/.netframework,version=v4.8/NOBanList.dll" DestinationFolder="$(ModDeployDir)" />
+    <Copy SourceFiles="./bin/$(Configuration)/.netframework,version=v4.8/NOBanList.pdb" DestinationFolder="$(ModDeployDir)" />
+    <Copy SourceFiles="Info.json" DestinationFolder="$(ModDeployDir)" />
+  </Target>
+
+  <ItemGroup>
+    <Reference Include="0Harmony">
+      <HintPath>$(AssemblyDir)\UnityModManager\0Harmony.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityModManager">
+      <HintPath>$(AssemblyDir)\UnityModManager\UnityModManager.dll</HintPath>
+    </Reference>
+
+    <Reference Include="$(AssemblyDir)\*.dll" />
+    
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Lib.Harmony" Version="2.3.3" />
+  </ItemGroup>
+
+</Project>

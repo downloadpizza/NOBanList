@@ -1,0 +1,10 @@
+{
+    "Id": "NOBanList",
+    "DisplayName": "NO BanList",
+    "Author": "DownloadPizza",
+    "Version": "0.1.0",
+    "ManagerVersion": "0.25.0.0",
+    "Requirements": [],
+    "AssemblyName": "NOBanList.dll",
+    "EntryMethod": "NOBanList.Main.Load"
+  }
